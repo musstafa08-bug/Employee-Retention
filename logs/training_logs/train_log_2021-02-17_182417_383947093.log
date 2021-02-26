@@ -1,0 +1,119 @@
+2021-02-17 18:24:17,163 : INFO : Start of Training
+2021-02-17 18:24:17,163 : INFO : Run_id:2021-02-17_182417_383947093
+2021-02-17 18:24:17,163 : INFO : Start of Data Load, validation and transformation
+2021-02-17 18:24:17,163 : INFO : Start of Archiving Old Rejected Files...
+2021-02-17 18:24:17,163 : INFO : End of Archiving Old Rejected Files...
+2021-02-17 18:24:17,163 : INFO : Start of Archiving Old Validated Files...
+2021-02-17 18:24:17,164 : INFO : End of Archiving Old Validated Files...
+2021-02-17 18:24:17,164 : INFO : Start of Archiving Old Processed Files...
+2021-02-17 18:24:17,164 : INFO : End of Archiving Old Processed Files...
+2021-02-17 18:24:17,164 : INFO : Start of Archiving Old Result Files...
+2021-02-17 18:24:17,165 : INFO : End of Archiving Old Result Files...
+2021-02-17 18:24:17,165 : INFO : Start of reading values from schema
+2021-02-17 18:24:17,166 : INFO : End of reading values from schema
+2021-02-17 18:24:17,166 : INFO : Start Validating Column Length....
+2021-02-17 18:24:17,279 : INFO : End of Validating Column Length...
+2021-02-17 18:24:17,279 : INFO : Start validating missing values...
+2021-02-17 18:24:17,308 : INFO : End of Validating missing values...
+2021-02-17 18:24:17,308 : INFO : Start replacing missing values with NULL...
+2021-02-17 18:24:17,467 : INFO : End of replacing values with NULL...
+2021-02-17 18:24:17,468 : INFO : Start of Creating Table
+2021-02-17 18:24:17,469 : INFO : Opened training database successfully
+2021-02-17 18:24:17,469 : INFO : Opened training database successfully
+2021-02-17 18:24:17,469 : INFO : Start of Inserting Data into Table...
+2021-02-17 18:24:17,469 : ERROR : Exception raised while Inserting Data into Table: no such table: training_raw_data_t 
+Traceback (most recent call last):
+  File "D:\PycharmProjects\ete\apps\database\database_operation.py", line 109, in insert_data
+    conn.execute("INSERT INTO " + table_name + " values ({values})".format(values=(to_db)))
+sqlite3.OperationalError: no such table: training_raw_data_t
+2021-02-17 18:24:17,473 : INFO : End of Inserting Data into Table...
+2021-02-17 18:24:17,473 : INFO : Start of Exporting Data into CSV...
+2021-02-17 18:24:17,473 : INFO : Opened training database successfully
+2021-02-17 18:24:17,473 : ERROR : Exception raised while Exporting Data into CSV: no such table: training_raw_data_t 
+Traceback (most recent call last):
+  File "D:\PycharmProjects\ete\apps\database\database_operation.py", line 138, in export_csv
+    cursor.execute(sqlSelect)
+sqlite3.OperationalError: no such table: training_raw_data_t
+2021-02-17 18:24:17,473 : INFO : Start Moving Processed Files
+2021-02-17 18:24:17,473 : INFO : End of Moving Processed Files...
+2021-02-17 18:24:17,473 : INFO : End of Data Load, validation and transformation
+2021-02-17 18:24:17,473 : INFO : Start of Preprocessing...
+2021-02-17 18:24:17,473 : INFO : Start of reading dataset...
+2021-02-17 18:24:17,474 : ERROR : Exception raised while reading dataset: %s[Errno 2] File b'data/training_data_validation/InputFile.csv' does not exist: b'data/training_data_validation/InputFile.csv'
+Traceback (most recent call last):
+  File "D:\PycharmProjects\ete\apps\preprocess\preprocessor.py", line 34, in get_data
+    self.data = pd.read_csv(self.data_path+'_validation/InputFile.csv')
+  File "D:\PycharmProjects\ete\lib\site-packages\pandas\io\parsers.py", line 685, in parser_f
+    return _read(filepath_or_buffer, kwds)
+  File "D:\PycharmProjects\ete\lib\site-packages\pandas\io\parsers.py", line 457, in _read
+    parser = TextFileReader(fp_or_buf, **kwds)
+  File "D:\PycharmProjects\ete\lib\site-packages\pandas\io\parsers.py", line 895, in __init__
+    self._make_engine(self.engine)
+  File "D:\PycharmProjects\ete\lib\site-packages\pandas\io\parsers.py", line 1135, in _make_engine
+    self._engine = CParserWrapper(self.f, **self.options)
+  File "D:\PycharmProjects\ete\lib\site-packages\pandas\io\parsers.py", line 1917, in __init__
+    self._reader = parsers.TextReader(src, **kwds)
+  File "pandas/_libs/parsers.pyx", line 382, in pandas._libs.parsers.TextReader.__cinit__
+  File "pandas/_libs/parsers.pyx", line 689, in pandas._libs.parsers.TextReader._setup_parser_source
+FileNotFoundError: [Errno 2] File b'data/training_data_validation/InputFile.csv' does not exist: b'data/training_data_validation/InputFile.csv'
+2021-02-17 18:24:17,477 : ERROR : Unsuccessful End of Preprocessing...
+Traceback (most recent call last):
+  File "D:\PycharmProjects\ete\apps\preprocess\preprocessor.py", line 34, in get_data
+    self.data = pd.read_csv(self.data_path+'_validation/InputFile.csv')
+  File "D:\PycharmProjects\ete\lib\site-packages\pandas\io\parsers.py", line 685, in parser_f
+    return _read(filepath_or_buffer, kwds)
+  File "D:\PycharmProjects\ete\lib\site-packages\pandas\io\parsers.py", line 457, in _read
+    parser = TextFileReader(fp_or_buf, **kwds)
+  File "D:\PycharmProjects\ete\lib\site-packages\pandas\io\parsers.py", line 895, in __init__
+    self._make_engine(self.engine)
+  File "D:\PycharmProjects\ete\lib\site-packages\pandas\io\parsers.py", line 1135, in _make_engine
+    self._engine = CParserWrapper(self.f, **self.options)
+  File "D:\PycharmProjects\ete\lib\site-packages\pandas\io\parsers.py", line 1917, in __init__
+    self._reader = parsers.TextReader(src, **kwds)
+  File "pandas/_libs/parsers.pyx", line 382, in pandas._libs.parsers.TextReader.__cinit__
+  File "pandas/_libs/parsers.pyx", line 689, in pandas._libs.parsers.TextReader._setup_parser_source
+FileNotFoundError: [Errno 2] File b'data/training_data_validation/InputFile.csv' does not exist: b'data/training_data_validation/InputFile.csv'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "D:\PycharmProjects\ete\apps\preprocess\preprocessor.py", line 196, in preprocess_trainset
+    data = self.get_data()
+  File "D:\PycharmProjects\ete\apps\preprocess\preprocessor.py", line 39, in get_data
+    raise Exception()
+Exception
+2021-02-17 18:24:17,478 : ERROR : Unsuccessful End of Training
+Traceback (most recent call last):
+  File "D:\PycharmProjects\ete\apps\preprocess\preprocessor.py", line 34, in get_data
+    self.data = pd.read_csv(self.data_path+'_validation/InputFile.csv')
+  File "D:\PycharmProjects\ete\lib\site-packages\pandas\io\parsers.py", line 685, in parser_f
+    return _read(filepath_or_buffer, kwds)
+  File "D:\PycharmProjects\ete\lib\site-packages\pandas\io\parsers.py", line 457, in _read
+    parser = TextFileReader(fp_or_buf, **kwds)
+  File "D:\PycharmProjects\ete\lib\site-packages\pandas\io\parsers.py", line 895, in __init__
+    self._make_engine(self.engine)
+  File "D:\PycharmProjects\ete\lib\site-packages\pandas\io\parsers.py", line 1135, in _make_engine
+    self._engine = CParserWrapper(self.f, **self.options)
+  File "D:\PycharmProjects\ete\lib\site-packages\pandas\io\parsers.py", line 1917, in __init__
+    self._reader = parsers.TextReader(src, **kwds)
+  File "pandas/_libs/parsers.pyx", line 382, in pandas._libs.parsers.TextReader.__cinit__
+  File "pandas/_libs/parsers.pyx", line 689, in pandas._libs.parsers.TextReader._setup_parser_source
+FileNotFoundError: [Errno 2] File b'data/training_data_validation/InputFile.csv' does not exist: b'data/training_data_validation/InputFile.csv'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "D:\PycharmProjects\ete\apps\preprocess\preprocessor.py", line 196, in preprocess_trainset
+    data = self.get_data()
+  File "D:\PycharmProjects\ete\apps\preprocess\preprocessor.py", line 39, in get_data
+    raise Exception()
+Exception
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "D:\PycharmProjects\ete\apps\training\train_model.py", line 47, in training_model
+    self.X, self.y = self.preProcess.preprocess_trainset()
+  File "D:\PycharmProjects\ete\apps\preprocess\preprocessor.py", line 215, in preprocess_trainset
+    raise Exception
+Exception

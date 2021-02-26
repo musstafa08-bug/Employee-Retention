@@ -1,0 +1,42 @@
+2021-02-18 11:58:20,469 : INFO : Start of Prediction
+2021-02-18 11:58:20,469 : INFO : run_id:2021-02-18_115820_239317737
+2021-02-18 11:58:20,469 : INFO : Start of Preprocessing...
+2021-02-18 11:58:20,469 : INFO : Start of feature encoding...
+2021-02-18 11:58:20,475 : INFO : End of feature encoding...
+2021-02-18 11:58:20,477 : INFO : Start of Droping Columns...
+2021-02-18 11:58:20,478 : INFO : End of Droping Columns...
+2021-02-18 11:58:20,478 : INFO : Start of finding missing values...
+2021-02-18 11:58:20,480 : INFO : End of finding missing values...
+2021-02-18 11:58:20,480 : INFO : Start of building final predictset...
+2021-02-18 11:58:20,480 : ERROR : Exception raised while building final predictset: [Errno 2] No such file or directory: 'apps/database/columns.json'
+Traceback (most recent call last):
+  File "D:\PycharmProjects\ete\apps\preprocess\preprocessor.py", line 166, in final_predictset
+    with open('apps/database/columns.json', 'r') as f:
+FileNotFoundError: [Errno 2] No such file or directory: 'apps/database/columns.json'
+2021-02-18 11:58:20,481 : ERROR : Unsuccessful End of Preprocessing...
+Traceback (most recent call last):
+  File "D:\PycharmProjects\ete\apps\preprocess\preprocessor.py", line 273, in preprocess_predict
+    data = self.final_predictset(data)
+  File "D:\PycharmProjects\ete\apps\preprocess\preprocessor.py", line 182, in final_predictset
+    raise e
+  File "D:\PycharmProjects\ete\apps\preprocess\preprocessor.py", line 166, in final_predictset
+    with open('apps/database/columns.json', 'r') as f:
+FileNotFoundError: [Errno 2] No such file or directory: 'apps/database/columns.json'
+2021-02-18 11:58:20,481 : ERROR : Unsuccessful End of Prediction
+Traceback (most recent call last):
+  File "D:\PycharmProjects\ete\apps\preprocess\preprocessor.py", line 273, in preprocess_predict
+    data = self.final_predictset(data)
+  File "D:\PycharmProjects\ete\apps\preprocess\preprocessor.py", line 182, in final_predictset
+    raise e
+  File "D:\PycharmProjects\ete\apps\preprocess\preprocessor.py", line 166, in final_predictset
+    with open('apps/database/columns.json', 'r') as f:
+FileNotFoundError: [Errno 2] No such file or directory: 'apps/database/columns.json'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "D:\PycharmProjects\ete\apps\prediction\predict_model.py", line 78, in single_predict_from_model
+    self.X = self.preProcess.preprocess_predict(data)
+  File "D:\PycharmProjects\ete\apps\preprocess\preprocessor.py", line 278, in preprocess_predict
+    raise Exception
+Exception
